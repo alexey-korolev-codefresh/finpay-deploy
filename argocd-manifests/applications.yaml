@@ -16,12 +16,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<YOUR_USERNAME>/finpay-deploy.git
+    repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
     targetRevision: main
     path: argocd-manifests/payments-api/development
   destination:
     server: https://kubernetes.default.svc
     namespace: payments-dev
+  annotations:
+    argo.octopus.com/project: payments-api-argo
+    argo.octopus.com/environment: development
   syncPolicy:
     automated:
       prune: true
@@ -35,12 +38,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<YOUR_USERNAME>/finpay-deploy.git
+    repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
     targetRevision: main
     path: argocd-manifests/payments-api/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: payments-staging
+  annotations:
+    argo.octopus.com/project: payments-api-argo
+    argo.octopus.com/environment: staging
   syncPolicy:
     automated:
       prune: true
