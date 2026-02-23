@@ -1,5 +1,5 @@
 # ArgoCD Application definitions for payments-api
-# These map ArgoCD apps to Octopus projects/environments via annotations.
+# These map ArgoCD apps to Octopus projects/environments via annotations
 #
 # Before applying:
 #   1. Replace <YOUR_USERNAME> with your GitHub username
