@@ -11,9 +11,3 @@ variable "Namespace" {
         environment = ["production"]
     }
 }
-
-variable "test" {
-    value "test" {
-        environment = ["development"]
-    }
-}
