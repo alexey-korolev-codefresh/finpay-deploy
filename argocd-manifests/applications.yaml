@@ -14,7 +14,7 @@ metadata:
   name: payments-api-dev
   namespace: argocd
   annotations:
-    argo.octopus.com/project: payments-api-argo
+    argo.octopus.com/project: merchant-portal
     argo.octopus.com/environment: development
     argo.octopus.com/tenant: "acme-corp"
 spec:
@@ -37,7 +37,7 @@ metadata:
   name: payments-api-staging
   namespace: argocd
   annotations:
-    argo.octopus.com/project: payments-api-argo
+    argo.octopus.com/project: merchant-portal
     argo.octopus.com/environment: staging
 spec:
   project: default
