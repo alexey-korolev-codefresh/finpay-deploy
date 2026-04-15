@@ -37,14 +37,17 @@ metadata:
   name: payments-api-staging
   namespace: argocd
   annotations:
-    argo.octopus.com/project: merchant-portal
-    argo.octopus.com/environment: staging
+    argo.octopus.com/project.finpay-deploy: merchant-portal
+    argo.octopus.com/environment.finpay-deploy: staging
 spec:
   project: default
-  source:
-    repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
-    targetRevision: main
-    path: argocd-manifests/payments-api/staging
+  sources:
+    - repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
+      targetRevision: main
+      path: argocd-manifests/payments-api/staging
+    - repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
+      targetRevision: main
+      path: argocd-manifests/payments-api/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: payments-staging
