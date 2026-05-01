@@ -14,9 +14,8 @@ metadata:
   name: payments-api-dev
   namespace: argocd
   annotations:
-    argo.octopus.com/project: merchant-portal
+    argo.octopus.com/project: payments-api-argo
     argo.octopus.com/environment: development
-    argo.octopus.com/tenant: "acme-corp"
 spec:
   project: default
   source:
@@ -37,18 +36,14 @@ metadata:
   name: payments-api-staging
   namespace: argocd
   annotations:
-    argo.octopus.com/project.merchant-portal: merchant-portal
-    argo.octopus.com/environment.merchant-portal: staging
+    argo.octopus.com/project: payments-api-argo
+    argo.octopus.com/environment: staging
 spec:
   project: default
-  sources:
-    - repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
-      targetRevision: main
-      path: argocd-manifests/payments-api/staging
-      name: merchant-portal
-    - repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
-      targetRevision: main
-      path: argocd-manifests/payments-api/staging
+  source:
+    repoURL: https://github.com/alexey-korolev-codefresh/finpay-deploy.git
+    targetRevision: main
+    path: argocd-manifests/payments-api/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: payments-staging
